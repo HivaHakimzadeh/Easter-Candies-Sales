@@ -1,0 +1,5 @@
+# Easter-Egg-Sales
+This program asks the user for the number of different chocolates sold, and returns the sum total of the sales and the chocolate with highest and lowest sales.
+The program asks the user to enter the number of each type of easter chocolate sold, 
+and it will create a chart with all the candy names and their sales. It will then return the sum total of the easter candies sold, 
+and it will return the names of the candies with the highest and the lowest sales.
