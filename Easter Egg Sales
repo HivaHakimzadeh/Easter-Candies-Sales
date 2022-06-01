@@ -1,0 +1,85 @@
+/******************************************************************************
+This program asks the user for the number of different chocolates sold, and returns 
+the sum total of the sales and the chocolate with highest and lowest sales.
+Hiva Hakimzadeh
+*******************************************************************************/
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int sum(int[],int);
+int highest(int[],int);
+int lowest(int[],int);
+int main()
+{
+    int const arraySize=5;
+    string c_Names[arraySize]={"Peeps", "Chocolate Bunnies","M&M","Cadbury Eggs", "Jelly Beans"};
+    int values[arraySize]={};
+    for(int i=0; i<arraySize;i++)
+    {
+        cout<<"Enter the sales for "<<c_Names[i]<< " : ";
+        cin>>values[i];
+    }
+    cout<<endl;
+    cout<<"Candy Name "<<setw(25)<<" Candy Sales "<<endl;
+    cout<<"-------------------------------------"<<endl;
+    int length;
+    for(int x=0; x<arraySize;x++)
+    {
+        length=c_Names[x].length();
+        cout<<c_Names[x]<<setw(30-length)<<values[x]<<endl;
+        
+    }
+    cout<<endl;
+    int total= sum(values ,arraySize);
+    cout<<"Total sales: "<<total<<endl;
+    
+    int index_H= highest(values,arraySize);
+    cout<<"Highest selling candy: "<<c_Names[index_H]<<endl;
+    
+    int index_L=lowest(values,arraySize);
+    cout<<"Lowest selling candy: "<<c_Names[index_L]<<endl;
+    
+    return 0;
+}
+//returns the sum of the sales of all candies
+int sum(int sales[],int size)
+{
+    int add=0;
+    for(int x=0;x<size;x++)
+    {
+        add+=sales[x];
+    }
+    return add;
+}
+//returns the index of the candy with highest Sales
+int highest(int sale[],int size)
+{
+    int high=sale[0];
+    int indexH=0;
+    for(int i=1; i<size-1;i++)
+    {
+       if(sale[i]>high)
+       {
+       high=sale[i] ;
+       indexH=i;
+       }
+       
+    }
+    return indexH;
+}
+//returns the candy with lowest sale
+int lowest(int sold[],int size)
+{
+    int lowest=sold[0];
+    int indexL=0;
+    for(int q=1;q<size-1;q++)
+    {
+        if(sold[q]<lowest)
+        {
+            lowest=sold[q];
+            indexL=q;
+        }
+    }
+    return indexL;
+}
+
